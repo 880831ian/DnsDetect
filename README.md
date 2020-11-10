@@ -13,7 +13,7 @@ nmap -sU -Pn -p 53 $1.* | grep -B3 '53/udp open  domain'
 ## dig 
 
 ```shell
-dig +short +time=1 $domain @${line}
+dig +short +time=1 $domain @ip address
 ```
 ## 用法
 
