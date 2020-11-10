@@ -6,7 +6,6 @@ nowtime=`date "+%F %T"`
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
 ##############################show&check###################################
 
-echo -e "${blue}Time :${white}${green} $nowtime${white}" >> b.txt
 echo "$1" | egrep '^([0-9]{1,3}\.){2}[0-9]{1,3}$' 1>/dev/null
 if [ $? -eq 0 ];then
 isip='0'
@@ -41,6 +40,7 @@ else
 	echo -e "${red}輸入不是IP位址或是help，請重新輸入!${white}"
 	exit
 fi
+echo -e "${blue}Time :${white}${green} $nowtime${white}" | tee -a $outfile
 echo -e "${blue}掃描是否開啟 53 port.....${white}"
 nmap -sU -Pn -p 53 $1.* | grep -B3 '53/udp open  domain' | grep -o '[0-9\.]\{7,\}' > a.txt
 if [ -s "a.txt" ];then
