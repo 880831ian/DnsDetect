@@ -15,3 +15,12 @@ nmap -sU -Pn -p 53 $1.* | grep -B3 '53/udp open  domain'
 ```shell
 dig +short +time=1 $domain @${line}
 ```
+## 用法
+
+```
+用法: sh $0 {ip address,help} {domain} {output file}
+ip address 請輸入網段即可 Ex :(163.17.10)
+help 輸入後可查詢規則
+domain 預設值為tw.yahoo.com，輸入後可自行設定domain
+outfile 預設值為 b.txt，輸入後可自行設定outfile
+```
