@@ -10,3 +10,8 @@ DNS偵測
 ```sh
 nmap -sU -Pn -p 53 $1.* | grep -B3 '53/udp open  domain'
 ```
+## dig 
+
+```sh
+dig +short +time=1 $domain @${line}
+```
